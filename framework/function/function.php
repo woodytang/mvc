@@ -48,10 +48,12 @@
 		
 			}
 	
+
 //加反斜线用于转义
 function addslashes($str) {
 	return (!get_magic_quotes_gpc())?addslashes($str):$str;
 }
+
 
 
 
