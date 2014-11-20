@@ -1,15 +1,17 @@
 <?php 
 
+$rootpath = __DIR__;
+
 $config = array(
 
-	'dbconfig' => array(
+	'viewconfig' => array(
 	'left_delimiter'=>'{',
 	'right_delimiter'=>'}',
-	'template_dir'=>'tpl',
-	'compile_dir'=>'data/template_C'
+	'template_dir'=>$rootpath.'/tpl',
+	'compile_dir'=>$rootpath.'/data/template_C'
 	),
 	
-	'viewconfig' => array(
+	'dbconfig' => array(
 	'dbhost'=>'localhost',
 	'dbuser'=>'root',
 	'dbpsw'=>'root',
@@ -17,8 +19,11 @@ $config = array(
 	'dbcharset'=>'utf8',
 	),
 
+
+
 );
 
+ 
 
 
  ?>

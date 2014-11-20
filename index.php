@@ -1,26 +1,8 @@
-
 <?php 
-
-require_once('framework/function/function.php');
-
-
+header("Content-type: text/html; charset=utf-8");
+//phpinfo();
 require_once('config.php');
-
-
-C('index','index');
-
-
-
-
-
-
-
-C('index','index');
-
-$xxx=array('a'=>'100','b'=>'200','c'=>'300');
-
-$xy=ORG('','xxx',$xxx);
-
-$xy->likewhat();
-
+require_once('framework/start.php');
+//echo "1213";exit();
+START::run($config);
  ?>

@@ -1,15 +1,19 @@
 <?php 
 //大C类，实例化控制器
+
 	function C($name, $method){
-	require_once('Controller/'.$name.'Controller.class.php');
+	global $rootpath;
+	require_once($rootpath.'/Controller/'.$name.'Controller.class.php');
+	//eval('$obj = new '.$name.'Controller;$obj->'.$method.'();');
 	
-	eval('$obj = new '.$name.'Controller;$obj->'.$method.'();');
-	
+	eval('$obj = new '.$name.'Controller; $obj->'.$method.'();');
+	//$obj = new indexController; $obj->index();
 }
 
 //大M类，实例化模型
 	function M($name){
-	require_once('Model/'.$name.'Model.class.php');
+	global $rootpath;
+	require_once($rootpath.'/Model/'.$name.'Model.class.php');
 	
 	eval('$obj = new '.$name.'Model;');
 	return $obj;
@@ -17,7 +21,8 @@
 
 //大M类，实例化视图	
 	function V($name){
-		require_once('View/'.$name.'View.class.php');
+	global $rootpath;
+		require_once($rootpath.'/View/'.$name.'View.class.php');
 		
 		eval('$obj = new '.$name.'View;');
 		return $obj;
@@ -37,8 +42,10 @@
 	
 //第三方类，实例化第三方插件
 	function ORG($path,$name,$params=array()) {
+	global $rootpath;
+	
 		 
-		require_once('ORG/'.$path.$name.'.class.php');
+		require_once($rootpath.'/ORG/'.$path.$name.'.class.php');
 		//echo 'ORG/'.$path.$name.'.class.php';
 		$obj = new $name();
 				
@@ -51,7 +58,7 @@
 
 
 //加反斜线用于转义
-function addslashes($str) {
+function daddslashes($str) {
 	return (!get_magic_quotes_gpc())?addslashes($str):$str;
 }
 
